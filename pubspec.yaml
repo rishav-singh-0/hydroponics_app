@@ -31,6 +31,7 @@ dependencies:
   flutter_screenutil: ^5.5.3
   flutter_svg: ^1.1.0
   get: ^4.6.5
+  syncfusion_flutter_gauges: ^20.1.59
 
 dev_dependencies:
   flutter_test:
