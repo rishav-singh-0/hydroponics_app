@@ -5,9 +5,9 @@ BorderRadius circularBorderRadius = BorderRadius.circular(10.0);
 var labelTextStyle = TextStyle(fontSize: 14.w, fontWeight: FontWeight.bold);
 
 class ElevatedCard extends StatelessWidget {
-  const ElevatedCard({Key? key, required this.cardChild}) : super(key: key);
+  const ElevatedCard({Key? key, this.cardChild}) : super(key: key);
 
-  final Widget cardChild;
+  final Widget? cardChild;
 
   @override
   Widget build(BuildContext context) {
@@ -39,13 +39,13 @@ class MonitorCard extends StatelessWidget {
     required this.cardIcon,
     required this.label,
     required this.currentValue,
-    required this.child,
+    this.child,
   }) : super(key: key);
 
   final IconData cardIcon;
   final String label;
   final String currentValue;
-  final Widget child;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +66,7 @@ class MonitorCard extends StatelessWidget {
             Text(currentValue, style: labelTextStyle),
           ],
         ),
-        child,
+        Container(child: child)
       ]),
     );
   }
@@ -78,21 +78,21 @@ class ControlCard extends StatelessWidget {
     required this.cardIcon,
     required this.label,
     required this.currentValue,
-    required this.child,
+    this.child,
     this.onTap,
   }) : super(key: key);
 
   final IconData cardIcon;
   final String label;
   final String currentValue;
-  final Widget child;
+  final Widget? child;
   final Function? onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => print("tapped"),
-      // borderRadius: circularBorderRadius,
+      borderRadius: circularBorderRadius,
       child: ElevatedCard(
         cardChild: Column(children: [
           Column(
@@ -110,7 +110,7 @@ class ControlCard extends StatelessWidget {
               Text(currentValue, style: labelTextStyle),
             ],
           ),
-          child,
+          Container(child: child)
         ]),
       ),
     );
