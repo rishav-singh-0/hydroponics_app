@@ -12,13 +12,15 @@ class ChartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(physics: const BouncingScrollPhysics(), children: [
-        const Padding(
-          padding: EdgeInsets.all(10),
+        Padding(
+          padding: EdgeInsets.only(
+            top: 20.h,
+          ),
         ),
         Text("Monitor",
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 34.w, fontWeight: FontWeight.bold)),
-        LinearGaugeCard(
+        ElevatedCard(
           label: "Temperature",
           currentValue: "60 °c",
           cardIcon: CupertinoIcons.thermometer,
@@ -33,7 +35,7 @@ class ChartPage extends StatelessWidget {
             pointerValue: 60,
           ),
         ),
-        LinearGaugeCard(
+        ElevatedCard(
           label: "Humidity",
           currentValue: "90 units",
           cardIcon: CupertinoIcons.drop,
@@ -48,7 +50,7 @@ class ChartPage extends StatelessWidget {
             colorHigh: Colors.purple,
           ),
         ),
-        LinearGaugeCard(
+        ElevatedCard(
           label: "Moisture",
           currentValue: "100",
           cardIcon: CupertinoIcons.drop,
@@ -62,7 +64,7 @@ class ChartPage extends StatelessWidget {
               colorMid: Colors.blue,
               colorHigh: Colors.purple),
         ),
-        LinearGaugeCard(
+        ElevatedCard(
           label: "pH",
           currentValue: "100",
           cardIcon: CupertinoIcons.lab_flask,
@@ -76,7 +78,7 @@ class ChartPage extends StatelessWidget {
               colorMid: Colors.orange,
               colorHigh: Colors.red),
         ),
-        LinearGaugeCard(
+        ElevatedCard(
           label: "Luminosity",
           currentValue: "100",
           cardIcon: CupertinoIcons.light_max,

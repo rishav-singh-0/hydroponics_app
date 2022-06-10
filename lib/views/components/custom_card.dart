@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LinearGaugeCard extends StatelessWidget {
-  const LinearGaugeCard({
+class ElevatedCard extends StatelessWidget {
+  const ElevatedCard({
     Key? key,
     required this.label,
     required this.cardIcon,
