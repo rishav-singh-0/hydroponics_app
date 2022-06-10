@@ -36,7 +36,7 @@ class ChartPage extends StatelessWidget {
         LinearGaugeCard(
           label: "Humidity",
           currentValue: "90 units",
-          cardIcon: CupertinoIcons.wand_stars_inverse,
+          cardIcon: CupertinoIcons.drop,
           child: VerticalGauge(
             minRange: 0,
             maxRange: 90,
@@ -51,7 +51,7 @@ class ChartPage extends StatelessWidget {
         LinearGaugeCard(
           label: "Moisture",
           currentValue: "100",
-          cardIcon: CupertinoIcons.wand_stars_inverse,
+          cardIcon: CupertinoIcons.drop,
           child: VerticalGauge(
               minRange: 0,
               maxRange: 4000,
