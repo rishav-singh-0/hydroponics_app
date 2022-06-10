@@ -1,32 +1,19 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hydroponics_app/views/components/gauge.dart';
 
 class LinearGaugeCard extends StatelessWidget {
-  const LinearGaugeCard(
-      {Key? key,
-      required this.label,
-      Icon? icon,
-      required this.minRange,
-      required this.maxRange,
-      required this.pointerValue,
-      required this.stepSize,
-      required this.stringUnit,
-      required this.colorLow,
-      required this.colorMid,
-      required this.colorHigh})
-      : super(key: key);
+  const LinearGaugeCard({
+    Key? key,
+    required this.label,
+    required this.cardIcon,
+    required this.currentValue,
+    required this.child,
+  }) : super(key: key);
 
   final String label;
-  final double minRange;
-  final double maxRange;
-  final double pointerValue;
-  final double stepSize;
-  final String stringUnit;
-  final Color colorLow;
-  final Color colorMid;
-  final Color colorHigh;
+  final IconData cardIcon;
+  final String currentValue;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +39,7 @@ class LinearGaugeCard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Icon(CupertinoIcons.thermometer),
+                  Icon(cardIcon),
                   const Padding(
                     padding: EdgeInsets.only(right: 10),
                   ),
@@ -61,20 +48,12 @@ class LinearGaugeCard extends StatelessWidget {
                           fontSize: 14.w, fontWeight: FontWeight.bold)),
                 ],
               ),
-              Text(label,
+              Text(currentValue,
                   style:
                       TextStyle(fontSize: 14.w, fontWeight: FontWeight.bold)),
             ],
           ),
-          VerticalGauge(
-              minRange: minRange,
-              maxRange: maxRange,
-              pointerValue: pointerValue,
-              stepSize: stepSize,
-              stringUnit: stringUnit,
-              colorLow: colorLow,
-              colorMid: colorMid,
-              colorHigh: colorHigh)
+          child,
         ]),
       ),
     );
