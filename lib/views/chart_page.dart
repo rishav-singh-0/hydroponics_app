@@ -20,7 +20,7 @@ class ChartPage extends StatelessWidget {
         Text("Monitor",
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 34.w, fontWeight: FontWeight.bold)),
-        ElevatedCard(
+        MonitorCard(
           label: "Temperature",
           currentValue: "60 °c",
           cardIcon: CupertinoIcons.thermometer,
@@ -35,7 +35,7 @@ class ChartPage extends StatelessWidget {
             pointerValue: 60,
           ),
         ),
-        ElevatedCard(
+        MonitorCard(
           label: "Humidity",
           currentValue: "90 units",
           cardIcon: CupertinoIcons.drop,
@@ -50,7 +50,7 @@ class ChartPage extends StatelessWidget {
             colorHigh: Colors.purple,
           ),
         ),
-        ElevatedCard(
+        MonitorCard(
           label: "Moisture",
           currentValue: "100",
           cardIcon: CupertinoIcons.drop,
@@ -64,7 +64,7 @@ class ChartPage extends StatelessWidget {
               colorMid: Colors.blue,
               colorHigh: Colors.purple),
         ),
-        ElevatedCard(
+        MonitorCard(
           label: "pH",
           currentValue: "100",
           cardIcon: CupertinoIcons.lab_flask,
@@ -78,7 +78,7 @@ class ChartPage extends StatelessWidget {
               colorMid: Colors.orange,
               colorHigh: Colors.red),
         ),
-        ElevatedCard(
+        MonitorCard(
           label: "Luminosity",
           currentValue: "100",
           cardIcon: CupertinoIcons.light_max,
