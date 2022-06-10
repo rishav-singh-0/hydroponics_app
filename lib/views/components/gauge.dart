@@ -7,6 +7,7 @@ class VerticalGauge extends StatelessWidget {
       required this.minRange,
       required this.maxRange,
       required this.pointerValue,
+      required this.stepSize,
       required this.stringUnit,
       required this.colorLow,
       required this.colorMid,
@@ -16,6 +17,7 @@ class VerticalGauge extends StatelessWidget {
   final double minRange;
   final double maxRange;
   final double pointerValue;
+  final double stepSize;
   final String stringUnit;
   final Color colorLow;
   final Color colorMid;
@@ -39,7 +41,7 @@ class VerticalGauge extends StatelessWidget {
     return SfLinearGauge(
         minimum: minRange,
         maximum: maxRange,
-        interval: 20.0,
+        interval: stepSize,
         minorTicksPerInterval: 0,
         animateAxis: true,
         orientation: LinearGaugeOrientation.horizontal,
@@ -70,8 +72,8 @@ class VerticalGauge extends StatelessWidget {
               offset: 26,
               position: LinearElementPosition.outside,
               child: SizedBox(
-                  width: 55,
-                  height: 45,
+                  width: 40,
+                  height: 30,
                   child: Center(
                       child: Text(
                     pointerValue.toStringAsFixed(0) + stringUnit,
@@ -85,7 +87,7 @@ class VerticalGauge extends StatelessWidget {
                                 : colorHigh),
                   )))),
           LinearShapePointer(
-            offset: 25,
+            offset: 15,
             elevation: 5,
             animationType: LinearAnimationType.linear,
             value: pointerValue,

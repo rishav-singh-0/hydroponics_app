@@ -16,10 +16,13 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       builder: (context, widget) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
+        // theme: ThemeData(
+        //   primaryColor: const Color(0xFF0A0E20),
+        //   scaffoldBackgroundColor: const Color(0xFF0A0E20),
+        //   textTheme: TextTheme(bodyText1: TextStyle()),
+        //   colorScheme:
+        //       ColorScheme.fromSwatch().copyWith(secondary: Colors.purple),
+        // ),
         home: HomePage(),
       ),
     );
