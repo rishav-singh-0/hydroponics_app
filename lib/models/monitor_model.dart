@@ -7,6 +7,7 @@ class MonitorModel {
   late int moisture;
   late int light;
   late num pH;
+  late int timestamp;
 
   MonitorModel(
       {required this.temperature,
@@ -23,6 +24,7 @@ class MonitorModel {
     light = documentSnapshot["light"];
     moisture = documentSnapshot["moisture"];
     pH = documentSnapshot["pH"];
+    timestamp = documentSnapshot["timestamp"];
   }
 }
 
