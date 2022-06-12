@@ -28,12 +28,9 @@ class ChartPage extends StatelessWidget {
               top: 20.h,
             ),
           ),
-          InkWell(
-            onTap: (() => {monitorController.monitors[0].logValues()}),
-            child: Text(monitorController.latestMonitor.timestamp.toString(),
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 34.w, fontWeight: FontWeight.bold)),
-          ),
+          Text("Monitor",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 34.w, fontWeight: FontWeight.bold)),
           MonitorCard(
             label: "Temperature",
             currentValue: "${monitorController.latestMonitor.temperature} °c",
