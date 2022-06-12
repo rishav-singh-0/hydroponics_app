@@ -27,7 +27,7 @@ class DashboardPage extends StatelessWidget {
                       currentValue: "ON",
                       child: Text("Some else")),
                   ControlCard(
-                      label: "Exhost Motor",
+                      label: "Exhast Motor",
                       cardIcon: FontAwesomeIcons.fan,
                       currentValue: "ON",
                       child: Text("Some else"))
