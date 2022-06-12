@@ -25,9 +25,6 @@ class MonitorController extends GetxController {
   void onReady() {
     log("onReady method entered !!!");
     monitorList.bindStream(FirestoreDb.monitorStream());
-    // if (monitorList.value != null) {
-    //   latestMonitor = monitorList.value.last;
-    // }
     log("onReady method called !!!");
   }
 }
