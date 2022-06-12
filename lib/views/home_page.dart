@@ -17,7 +17,8 @@ class HomePage extends StatelessWidget {
         body: SafeArea(
           child: IndexedStack(
             index: controller.tabIndex,
-            children: const [DashboardPage(), ChartPage(), AboutPage()],
+            // ignore: prefer_const_constructors
+            children: [DashboardPage(), ChartPage(), const AboutPage()],
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(

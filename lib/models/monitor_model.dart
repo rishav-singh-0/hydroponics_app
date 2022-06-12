@@ -4,7 +4,7 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class MonitorModel {
-  String? documentId;
+  late String documentId;
   late num temperature;
   late num humidity;
   late int moisture;
@@ -13,85 +13,25 @@ class MonitorModel {
   late int timestamp;
 
   MonitorModel(
-      {required this.temperature,
+      {required this.documentId,
+      required this.temperature,
       required this.humidity,
       required this.light,
       required this.moisture,
       required this.pH,
-      timestamp});
+      required this.timestamp});
 
-  factory MonitorModel.fromFirestore(
-    DocumentSnapshot<Map<String, dynamic>> snapshot,
-    SnapshotOptions? options,
-  ) {
-    final data = snapshot.data();
-    return MonitorModel(
-      temperature: data?['temperature'],
-      humidity: data?['humidity'],
-      moisture: data?['moisture'],
-      light: data?['light'],
-      pH: data?['pH'],
-      timestamp: data?['time_stamp'],
-    );
-  }
-
-  MonitorModel.fromMap({required Map<String, dynamic> data}) {
-    log("testing");
-    log(data.toString());
-    data.entries.forEach((element) {
-      log("${element.key}: ${element.value}");
-      switch (element.key) {
-        case "temperature":
-          {
-            temperature = element.value;
-          }
-          break;
-        case "luminocity":
-          {
-            light = element.value;
-          }
-          break;
-        case "humidity":
-          {
-            humidity = element.value;
-          }
-          break;
-        case "pH":
-          {
-            pH = element.value;
-          }
-          break;
-        case "time_stamp":
-          {
-            timestamp = element.value;
-          }
-          break;
-        case "moisture":
-          {
-            moisture = element.value;
-          }
-          break;
-      }
-    });
-  }
-
-  Map<String, dynamic> toFirestore() {
-    return {
-      if (temperature != null) "temperature": temperature,
-      if (humidity != null) "humidity": humidity,
-      if (moisture != null) "moisture": moisture,
-      if (light != null) "light": light,
-      if (pH != null) "pH": pH,
-      if (timestamp != null) "time_stamp": timestamp,
-    };
+  logValues() {
+    log("timestamp: ${light.toString()}, temperature: ${temperature.toString()}, humidity: ${humidity.toString()}, moisture: ${moisture.toString()}, pH: ${pH.toString()}, light: ${light.toString()}");
   }
 
   MonitorModel.fromDocumentSnapshot(
       {required DocumentSnapshot documentSnapshot}) {
-    documentId = documentSnapshot.id;
-    temperature = documentSnapshot["temperature"];
+    documentId = documentSnapshot.data().toString();
+    // log("from model $documentId");
+    temperature = documentSnapshot["tempreture"];
     humidity = documentSnapshot["humidity"];
-    light = documentSnapshot["light"];
+    light = documentSnapshot["luminocity"];
     moisture = documentSnapshot["moisture"];
     pH = documentSnapshot["pH"];
     timestamp = documentSnapshot["time_stamp"];

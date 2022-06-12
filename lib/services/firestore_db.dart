@@ -12,11 +12,12 @@ class FirestoreDb {
         .map((QuerySnapshot query) {
       List<MonitorModel> monitors = [];
       for (var monitor in query.docs) {
+        // log("from db ${monitor.data()!["pH"]}");
         final monitorModel =
-            MonitorModel.fromMap(data: monitor.data() as Map<String, dynamic>);
+            MonitorModel.fromDocumentSnapshot(documentSnapshot: monitor);
         monitors.add(monitorModel);
       }
-      log(monitors.toString());
+      // log(monitors.toString());
       return monitors;
     });
   }
