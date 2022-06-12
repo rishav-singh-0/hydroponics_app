@@ -8,6 +8,7 @@ class FirestoreDb {
   static Stream<List<MonitorModel>> monitorStream() {
     return firebaseFirestore
         .collection('monitor')
+        .orderBy("time_stamp", descending: false)
         .snapshots()
         .map((QuerySnapshot query) {
       List<MonitorModel> monitors = [];
