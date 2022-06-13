@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 BorderRadius circularBorderRadius = BorderRadius.circular(10.0);
-var labelTextStyle = TextStyle(fontSize: 14.w, fontWeight: FontWeight.bold);
+var labelTextStyle = TextStyle(fontSize: 15.w, fontWeight: FontWeight.bold);
 
 class ElevatedCard extends StatelessWidget {
   const ElevatedCard({Key? key, this.cardChild}) : super(key: key);
@@ -92,24 +92,21 @@ class ControlCard extends StatelessWidget {
       onTap: () => onTap(),
       borderRadius: circularBorderRadius,
       child: ElevatedCard(
-        cardChild: Column(children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+        cardChild: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              Text(label, style: labelTextStyle),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(cardIcon),
-                  SizedBox(
-                    width: 10.w,
+                  Icon(
+                    cardIcon,
+                    size: 80.h,
                   ),
-                  Text(label, style: labelTextStyle),
                 ],
               ),
               Text(currentValue, style: labelTextStyle),
-            ],
-          ),
-          Container(child: child)
-        ]),
+            ]),
       ),
     );
   }
