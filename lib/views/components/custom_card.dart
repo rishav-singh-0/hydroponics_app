@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-BorderRadius circularBorderRadius = BorderRadius.circular(10.0);
-var labelTextStyle = TextStyle(fontSize: 15.w, fontWeight: FontWeight.bold);
+import 'package:hydroponics_app/views/components/constants.dart';
 
 class ElevatedCard extends StatelessWidget {
   const ElevatedCard({Key? key, this.cardChild}) : super(key: key);
@@ -70,8 +68,8 @@ class MonitorCard extends StatelessWidget {
   }
 }
 
-class ControlCard extends StatelessWidget {
-  const ControlCard({
+class ActuatorButtonCard extends StatelessWidget {
+  const ActuatorButtonCard({
     Key? key,
     required this.cardIcon,
     required this.label,
