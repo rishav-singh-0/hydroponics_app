@@ -4,7 +4,7 @@ import '../services/firestore_db.dart';
 import 'package:hydroponics_app/models/monitor_model.dart';
 
 class MonitorController extends GetxController {
-  var isLoading = true;
+  var isLoading = true.obs;
   Rx<List<MonitorModel>> monitorList = Rx<List<MonitorModel>>([]);
   List<MonitorModel> get monitors => monitorList.value;
   MonitorModel get latestMonitor {

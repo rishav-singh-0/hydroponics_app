@@ -1,14 +1,10 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hydroponics_app/controllers/firestore_controller.dart';
-import 'package:hydroponics_app/views/components/gauge.dart';
-
+import 'components/gauge.dart';
 import 'components/custom_card.dart';
 
 class ChartPage extends StatelessWidget {
