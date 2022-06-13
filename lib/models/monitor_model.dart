@@ -2,6 +2,7 @@
 
 import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class MonitorModel {
   late String documentId;
@@ -38,27 +39,29 @@ class MonitorModel {
   }
 }
 
-class Actuator {
-  String? documentId;
+class ActuatorModel {
+  late String documentId;
   late num motorAcid;
   late num motorBase;
   late bool motorMain;
   late bool motorExhaust;
   late num light;
 
-  Actuator(
-      {required this.light,
+  ActuatorModel(
+      {required this.documentId,
+      required this.light,
       required this.motorAcid,
       required this.motorBase,
       required this.motorExhaust,
       required this.motorMain});
 
-  Actuator.fromDocumentSnapshot({required DocumentSnapshot documentSnapshot}) {
-    documentId = documentSnapshot.id;
-    motorAcid = documentSnapshot["motor_acid"];
-    motorBase = documentSnapshot["motor_base"];
-    motorExhaust = documentSnapshot["motor_ventilation"];
-    motorMain = documentSnapshot["motor_main"];
-    light = documentSnapshot["luminosity"];
+  ActuatorModel.fromRTDB({required DataSnapshot documentSnapshot}) {
+    documentId = documentSnapshot.value.toString();
+    log("from model $documentId");
+    motorAcid = documentSnapshot.child("motor_acid").value as num;
+    motorBase = documentSnapshot.child("motor_base").value as num;
+    motorExhaust = documentSnapshot.child("motor_ventilation").value as bool;
+    motorMain = documentSnapshot.child("motor_main").value as bool;
+    light = documentSnapshot.child("luminosity").value as num;
   }
 }
