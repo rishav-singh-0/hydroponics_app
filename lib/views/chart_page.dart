@@ -4,8 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:hydroponics_app/controllers/firestore_controller.dart';
 import 'package:hydroponics_app/views/components/constants.dart';
-import 'components/gauge.dart';
-import 'components/custom_card.dart';
+import 'package:hydroponics_app/views/components/gauge.dart';
+import 'package:hydroponics_app/views/components/monitor_card.dart';
 
 class ChartPage extends StatelessWidget {
   ChartPage({Key? key}) : super(key: key);

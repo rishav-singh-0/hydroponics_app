@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:hydroponics_app/controllers/firebase_rtdb_controller.dart';
+import 'package:hydroponics_app/views/components/actuator_button_card.dart';
 import 'package:hydroponics_app/views/components/constants.dart';
-import 'package:hydroponics_app/views/components/custom_card.dart';
 
 class DashboardPage extends StatelessWidget {
   DashboardPage({Key? key}) : super(key: key);
