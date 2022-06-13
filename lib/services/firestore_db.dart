@@ -26,7 +26,7 @@ class FirestoreDb {
 }
 
 class FirebaseRTDB {
-  static Stream<List<ActuatorModel>> getActuatorList() {
+  static Stream<ActuatorModel> getActuatorList() {
     // static getActuatorList() {
     final DatabaseReference dbRef = FirebaseDatabase.instance.ref("test");
     final actuatorStream = dbRef.onValue;
@@ -38,7 +38,7 @@ class FirebaseRTDB {
           ActuatorModel.fromRTDB(documentSnapshot: actuatorMap);
       actuators.add(actuatorModel);
       log("from db $actuatorModel");
-      return actuators;
+      return actuatorModel;
     });
   }
 }
