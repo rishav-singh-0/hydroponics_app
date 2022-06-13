@@ -37,7 +37,7 @@ class FirebaseRTDB {
       final actuatorModel =
           ActuatorModel.fromRTDB(documentSnapshot: actuatorMap);
       actuators.add(actuatorModel);
-      log("from db $actuatorModel");
+      // log("from db $actuatorModel");
       return actuatorModel;
     });
   }

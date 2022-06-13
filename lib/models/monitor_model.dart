@@ -23,7 +23,9 @@ class MonitorModel {
       required this.timestamp});
 
   logValues() {
-    log("timestamp: ${light.toString()}, temperature: ${temperature.toString()}, humidity: ${humidity.toString()}, moisture: ${moisture.toString()}, pH: ${pH.toString()}, light: ${light.toString()}");
+    log("timestamp: ${light.toString()}, temperature: ${temperature.toString()}, ");
+    log("humidity: ${humidity.toString()}, moisture: ${moisture.toString()}, ");
+    log("pH: ${pH.toString()}, light: ${light.toString()}");
   }
 
   MonitorModel.fromDocumentSnapshot(
@@ -57,7 +59,7 @@ class ActuatorModel {
 
   ActuatorModel.fromRTDB({required DataSnapshot documentSnapshot}) {
     documentId = documentSnapshot.value.toString();
-    log("from model $documentId");
+    // log("from model $documentId");
     motorAcid = documentSnapshot.child("motor_acid").value as num;
     motorBase = documentSnapshot.child("motor_base").value as num;
     motorExhaust = documentSnapshot.child("motor_ventilation").value as bool;

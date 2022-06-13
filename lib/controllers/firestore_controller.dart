@@ -23,9 +23,7 @@ class MonitorController extends GetxController {
 
   @override
   void onReady() {
-    log("onReady method entered !!!");
     monitorList.bindStream(FirestoreDb.monitorStream());
-    log("onReady method called !!!");
   }
 
   @override
