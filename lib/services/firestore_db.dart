@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'initializers.dart';
 import '../models/monitor_model.dart';
 
@@ -24,15 +25,20 @@ class FirestoreDb {
   }
 }
 
-// class FirestoreDb {
-//   static Stream<List<MonitorModel>> monitorStream() {
-//     List<MonitorModel> monitors = [];
-//     return firebaseFirestore.collection("monitor").snapshots().map((event) {
-//       for (var document in event.docs) {
-//         final monitorModel = MonitorModel.fromMap(data: document.data());
-//         monitors.add(monitorModel);
-//       }
-//       return monitorModel;
-//     });
-//   }
-// }
+class FirebaseRTDB {
+  static Stream<List<ActuatorModel>> getActuatorList() {
+    // static getActuatorList() {
+    final DatabaseReference dbRef = FirebaseDatabase.instance.ref("test");
+    final actuatorStream = dbRef.onValue;
+    List<ActuatorModel> actuators = [];
+    return actuatorStream.map((event) {
+      // log("from db ${event.snapshot.child('motor_acid').value}");
+      final DataSnapshot actuatorMap = event.snapshot;
+      final actuatorModel =
+          ActuatorModel.fromRTDB(documentSnapshot: actuatorMap);
+      actuators.add(actuatorModel);
+      log("from db $actuatorModel");
+      return actuators;
+    });
+  }
+}
