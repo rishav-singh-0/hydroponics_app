@@ -55,13 +55,19 @@ android {
         // multiDexEnabled true
     }
 
-    buildTypes {
-        release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
-        }
-    }
+   signingConfigs {
+       release {
+           keyAlias 'release'
+           keyPassword 'hydroponics_app_release'
+           storeFile file('release-keystore.jks')
+           storePassword 'hydroponics_app_release'
+       }
+   }
+   buildTypes {
+       release {
+           signingConfig signingConfigs.release
+       }
+   }
 }
 
 flutter {
