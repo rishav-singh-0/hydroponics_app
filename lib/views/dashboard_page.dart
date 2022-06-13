@@ -33,21 +33,21 @@ class DashboardPage extends StatelessWidget {
                         label: "Main Motor",
                         cardIcon: FontAwesomeIcons.fan,
                         currentValue: checkOnOff(
-                            actuatorController.latestActuator.motorMain),
+                            actuatorController.actuatorList.value.motorMain),
                       ),
                       ControlCard(
                         label: "Exhaust Motor",
                         cardIcon: FontAwesomeIcons.fan,
                         currentValue: checkOnOff(
-                            actuatorController.latestActuator.motorExhaust),
+                            actuatorController.actuatorList.value.motorExhaust),
                       )
                     ],
                   ),
                   ControlCard(
                       label: "Light",
                       cardIcon: FontAwesomeIcons.lightbulb,
-                      currentValue:
-                          checkOnOff(actuatorController.latestActuator.light),
+                      currentValue: checkOnOff(
+                          actuatorController.actuatorList.value.light),
                       child: Text("Some else")),
                   Row(
                     children: [
@@ -55,13 +55,13 @@ class DashboardPage extends StatelessWidget {
                         label: "Acid Motor",
                         cardIcon: FontAwesomeIcons.fan,
                         currentValue: checkOnOff(
-                            actuatorController.latestActuator.motorAcid),
+                            actuatorController.actuatorList.value.motorAcid),
                       ),
                       ControlCard(
                         label: "Base Motor",
                         cardIcon: FontAwesomeIcons.fan,
                         currentValue: checkOnOff(
-                            actuatorController.latestActuator.motorBase),
+                            actuatorController.actuatorList.value.motorBase),
                       ),
                     ],
                   ),
