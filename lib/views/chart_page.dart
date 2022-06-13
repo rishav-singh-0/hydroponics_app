@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hydroponics_app/controllers/firestore_controller.dart';
+import 'package:hydroponics_app/views/components/constants.dart';
 import 'components/gauge.dart';
 import 'components/custom_card.dart';
 
@@ -20,13 +20,9 @@ class ChartPage extends StatelessWidget {
         }
         return ListView(physics: const BouncingScrollPhysics(), children: [
           Padding(
-            padding: EdgeInsets.only(
-              top: 20.h,
-            ),
+            padding: headerPadding,
           ),
-          Text("Monitor",
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 34.w, fontWeight: FontWeight.bold)),
+          Text("Monitor", textAlign: TextAlign.center, style: headerTextStyle),
           MonitorCard(
             label: "Temperature",
             currentValue: "${monitorController.latestMonitor.temperature} °c",
