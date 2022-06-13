@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'initializers.dart';
@@ -39,6 +37,17 @@ class FirebaseRTDB {
       actuators.add(actuatorModel);
       // log("from db $actuatorModel");
       return actuatorModel;
+    });
+  }
+
+  static void updateActuatorList(ActuatorModel actuatorModel) async {
+    final DatabaseReference dbRef = FirebaseDatabase.instance.ref("test");
+    return await dbRef.update({
+      "luminosity": actuatorModel.light,
+      "motor_acid": actuatorModel.motorAcid,
+      "motor_base": actuatorModel.motorBase,
+      "motor_main": actuatorModel.motorMain,
+      "motor_ventilation": actuatorModel.motorExhaust
     });
   }
 }
