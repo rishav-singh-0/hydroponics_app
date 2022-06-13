@@ -11,24 +11,22 @@ class ElevatedCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        margin: const EdgeInsets.all(15),
-        padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          borderRadius: circularBorderRadius,
-          color: Colors.blue,
-          backgroundBlendMode: BlendMode.colorBurn,
-          // boxShadow: const [
-          //   BoxShadow(
-          //     color: Colors.black12,
-          //     offset: Offset(0.0, 1.0), //(x,y)
-          //     blurRadius: 10.0,
-          //   ),
-          // ],
-        ),
-        child: cardChild,
+    return Container(
+      margin: const EdgeInsets.all(15),
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        borderRadius: circularBorderRadius,
+        color: Colors.white,
+        backgroundBlendMode: BlendMode.colorBurn,
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black12,
+            offset: Offset(0.0, 1.0), //(x,y)
+            blurRadius: 10.0,
+          ),
+        ],
       ),
+      child: cardChild,
     );
   }
 }
