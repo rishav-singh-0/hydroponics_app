@@ -38,15 +38,19 @@ jobs:
         id: flutter_build
         run: |
           flutter pub get
-          flutter build apk
-          tar -czvf release_${{ steps.vars.outputs.sha_short }}.zip build/
+          flutter build apk --split-per-abi
+      
+      - name: Prepare release files
+        id: prepare_release
+        run: |
+          tar -czvf release_build_${{ steps.vars.outputs.sha_short }}.zip build/
           
       - name: Release
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            build/app/outputs/apk/release/app-release.apk
+            build/app/outputs/apk/release/app-*-release.apk
             release_${{ steps.vars.outputs.sha_short }}.zip
           tag_name: ${{ steps.vars.outputs.sha_short }}
           release_name: Release ${{ steps.vars.outputs.sha_short }}
