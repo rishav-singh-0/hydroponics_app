@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:get/get.dart';
 import '../services/firestore_db.dart';
 import 'package:hydroponics_app/models/monitor_model.dart';
@@ -12,6 +11,11 @@ class ActuatorController extends GetxController {
           motorExhaust: false,
           motorMain: false)
       .obs;
+
+  void updateActuator() {
+    FirebaseRTDB.updateActuatorList(actuatorList.value);
+    update();
+  }
 
   @override
   void onReady() {
