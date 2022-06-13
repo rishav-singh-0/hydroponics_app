@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -81,19 +79,19 @@ class ControlCard extends StatelessWidget {
     required this.label,
     required this.currentValue,
     this.child,
-    this.onTap,
+    required this.onTap,
   }) : super(key: key);
 
   final IconData cardIcon;
   final String label;
   final String currentValue;
   final Widget? child;
-  final Function? onTap;
+  final Function onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => log("tapped"),
+      onTap: () => onTap(),
       borderRadius: circularBorderRadius,
       child: ElevatedCard(
         cardChild: Column(children: [
