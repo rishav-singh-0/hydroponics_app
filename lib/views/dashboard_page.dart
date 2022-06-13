@@ -12,94 +12,102 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(physics: const BouncingScrollPhysics(), children: [
-        Padding(
-          padding: EdgeInsets.only(
-            top: 20.h,
-          ),
-          child: Obx(
-            () {
-              var actuators = actuatorController.actuatorList.value;
-              if (actuators.isBlank == null) {
-                return const Text("Loading");
-              }
-              return Column(
-                children: [
-                  Text("Dashboard",
-                      style: TextStyle(
-                          fontSize: 34.w, fontWeight: FontWeight.bold)),
-                  Row(
-                    children: [
-                      ControlCard(
-                        label: "Main Motor",
-                        cardIcon: FontAwesomeIcons.fan,
-                        currentValue: checkOnOff(actuators.motorMain),
-                        onTap: () {
-                          actuators.motorMain = !actuators.motorMain;
-                          actuatorController.updateActuator();
-                        },
-                      ),
-                      ControlCard(
-                        label: "Exhaust Motor",
-                        cardIcon: FontAwesomeIcons.fan,
-                        currentValue: checkOnOff(actuators.motorExhaust),
-                        onTap: () {
-                          actuators.motorExhaust = !actuators.motorExhaust;
-                          actuatorController.updateActuator();
-                        },
-                      )
-                    ],
-                  ),
-                  ControlCard(
-                    label: "Light",
-                    cardIcon: FontAwesomeIcons.lightbulb,
-                    currentValue: checkOnOff(actuators.light),
-                    // child: Text("Some else"),
-                    onTap: () {
-                      if (actuators.light == 0) {
-                        actuators.light = 255;
-                      } else {
-                        actuators.light = 0;
-                      }
-                      return actuatorController.updateActuator();
-                    },
-                  ),
-                  Row(
-                    children: [
-                      ControlCard(
-                        label: "Acid Motor",
-                        cardIcon: FontAwesomeIcons.fan,
-                        currentValue: checkOnOff(actuators.motorAcid),
-                        onTap: () {
-                          if (actuators.motorAcid == 0) {
-                            actuators.motorAcid = 5; //TODO: use PID here
-                          } else {
-                            actuators.motorAcid = 0;
-                          }
-                          actuatorController.updateActuator();
-                        },
-                      ),
-                      ControlCard(
-                        label: "Base Motor",
-                        cardIcon: FontAwesomeIcons.fan,
-                        currentValue: checkOnOff(actuators.motorBase),
-                        onTap: () {
-                          if (actuators.motorBase == 0) {
-                            actuators.motorBase = 5; //TODO: use PID here
-                          } else {
-                            actuators.motorBase = 0;
-                          }
-                          actuatorController.updateActuator();
-                        },
-                      ),
-                    ],
-                  ),
-                ],
-              );
-            },
-          ),
+      body: Padding(
+        padding: EdgeInsets.only(
+          top: 20.h,
         ),
-      ]),
+        child: Obx(
+          () {
+            var actuators = actuatorController.actuatorList.value;
+            if (actuators.isBlank == null) {
+              return const Text("Loading");
+            }
+            return Column(children: [
+              Text("Dashboard",
+                  style:
+                      TextStyle(fontSize: 34.w, fontWeight: FontWeight.bold)),
+              Expanded(
+                  child: Row(
+                children: [
+                  Expanded(
+                    child: ControlCard(
+                      label: "Main Motor",
+                      cardIcon: FontAwesomeIcons.fan,
+                      currentValue: checkOnOff(actuators.motorMain),
+                      onTap: () {
+                        actuators.motorMain = !actuators.motorMain;
+                        actuatorController.updateActuator();
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: ControlCard(
+                      label: "Exhaust Motor",
+                      cardIcon: FontAwesomeIcons.fan,
+                      currentValue: checkOnOff(actuators.motorExhaust),
+                      onTap: () {
+                        actuators.motorExhaust = !actuators.motorExhaust;
+                        actuatorController.updateActuator();
+                      },
+                    ),
+                  )
+                ],
+              )),
+              Expanded(
+                child: ControlCard(
+                  label: "Light",
+                  cardIcon: FontAwesomeIcons.lightbulb,
+                  currentValue: checkOnOff(actuators.light),
+                  // child: Text("Some else"),
+                  onTap: () {
+                    if (actuators.light == 0) {
+                      actuators.light = 255;
+                    } else {
+                      actuators.light = 0;
+                    }
+                    return actuatorController.updateActuator();
+                  },
+                ),
+              ),
+              Expanded(
+                  child: Row(
+                children: [
+                  Expanded(
+                    child: ControlCard(
+                      label: "Acid Motor",
+                      cardIcon: FontAwesomeIcons.fan,
+                      currentValue: checkOnOff(actuators.motorAcid),
+                      onTap: () {
+                        if (actuators.motorAcid == 0) {
+                          actuators.motorAcid = 5; //TODO: use PID here
+                        } else {
+                          actuators.motorAcid = 0;
+                        }
+                        actuatorController.updateActuator();
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: ControlCard(
+                      label: "Base Motor",
+                      cardIcon: FontAwesomeIcons.fan,
+                      currentValue: checkOnOff(actuators.motorBase),
+                      onTap: () {
+                        if (actuators.motorBase == 0) {
+                          actuators.motorBase = 5; //TODO: use PID here
+                        } else {
+                          actuators.motorBase = 0;
+                        }
+                        actuatorController.updateActuator();
+                      },
+                    ),
+                  )
+                ],
+              )),
+            ]);
+          },
+        ),
+      ),
     );
   }
 }
