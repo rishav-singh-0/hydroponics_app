@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
+import 'package:hydroponics_app/views/components/about_text.dart';
 import 'package:hydroponics_app/views/components/constants.dart';
-
-const aboutTextStyleBold = TextStyle(
-    fontSize: 18.0,
-    fontWeight: FontWeight.bold,
-    letterSpacing: 1.5,
-    height: 2.2);
-const sectionSpaceHeight = 10.0;
 
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
@@ -53,20 +46,6 @@ class AboutPage extends StatelessWidget {
               ),
             )
           ]),
-    );
-  }
-}
-
-class AboutTextNormal extends StatelessWidget {
-  const AboutTextNormal(this.data);
-  final String data;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      data,
-      style: const TextStyle(fontSize: 15.0, letterSpacing: 1.2, height: 1.4),
-      textAlign: TextAlign.justify,
     );
   }
 }
