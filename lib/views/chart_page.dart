@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:hydroponics_app/controllers/firestore_controller.dart';
 import 'package:hydroponics_app/views/components/constants.dart';
@@ -26,7 +26,7 @@ class ChartPage extends StatelessWidget {
           MonitorCard(
             label: "Temperature",
             currentValue: "${monitorController.latestMonitor.temperature} °c",
-            cardIcon: CupertinoIcons.thermometer,
+            cardIcon: FontAwesomeIcons.temperatureHalf,
             child: VerticalGauge(
               minRange: 0,
               maxRange: 80,
@@ -42,7 +42,7 @@ class ChartPage extends StatelessWidget {
           MonitorCard(
             label: "Humidity",
             currentValue: "${monitorController.latestMonitor.humidity} units",
-            cardIcon: CupertinoIcons.drop,
+            cardIcon: FontAwesomeIcons.droplet,
             child: VerticalGauge(
               minRange: 0,
               maxRange: 90,
@@ -57,7 +57,7 @@ class ChartPage extends StatelessWidget {
           MonitorCard(
             label: "Moisture",
             currentValue: "${monitorController.latestMonitor.moisture}",
-            cardIcon: CupertinoIcons.drop,
+            cardIcon: FontAwesomeIcons.droplet,
             child: VerticalGauge(
                 minRange: 0,
                 maxRange: 4000,
@@ -72,7 +72,7 @@ class ChartPage extends StatelessWidget {
           MonitorCard(
             label: "pH",
             currentValue: "${monitorController.latestMonitor.pH}",
-            cardIcon: CupertinoIcons.lab_flask,
+            cardIcon: FontAwesomeIcons.flask,
             child: VerticalGauge(
                 minRange: 0,
                 maxRange: 14,
@@ -86,7 +86,7 @@ class ChartPage extends StatelessWidget {
           MonitorCard(
             label: "Luminosity",
             currentValue: "${monitorController.latestMonitor.light}",
-            cardIcon: CupertinoIcons.light_max,
+            cardIcon: FontAwesomeIcons.lightbulb,
             child: VerticalGauge(
                 minRange: 0,
                 maxRange: 4000,
