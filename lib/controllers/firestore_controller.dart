@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:get/get.dart';
 import '../services/firestore_db.dart';
 import 'package:hydroponics_app/models/monitor_model.dart';
