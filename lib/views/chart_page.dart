@@ -15,7 +15,7 @@ class ChartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Obx(() {
-        if (monitorController.monitorList.value == null) {
+        if (monitorController.monitorList.value.isEmpty) {
           return Text("Loading");
         }
         return ListView(physics: const BouncingScrollPhysics(), children: [
