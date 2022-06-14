@@ -37,7 +37,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/icons/
     - assets/pics/
 
   # For details regarding adding assets from package dependencies, see
